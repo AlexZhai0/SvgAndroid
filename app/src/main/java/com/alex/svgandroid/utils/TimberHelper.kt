@@ -1,4 +1,4 @@
-@file:Suppress("ConstantConditionIf")
+@file:Suppress("ConstantConditionIf", "unused")
 
 package com.alex.svgandroid.utils
 
@@ -12,7 +12,7 @@ import timber.log.Timber
 
 
 // 是否显示 Log，在测试数据的时候打开
-const val isShowLog = true
+const val isShowLog = false
 // Log 中的 tag 后缀，方便在几个页面测试时过滤 Log
 const val tagName = "--Alex"
 
