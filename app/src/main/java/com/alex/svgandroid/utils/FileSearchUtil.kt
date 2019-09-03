@@ -8,37 +8,31 @@ fun queryFiles(context: Context?, fileSuffixName: String): ArrayList<FileSVG> {
 
   val list = ArrayList<FileSVG>()
 
-  val projection = arrayOf(
-    MediaStore.Files.FileColumns._ID,
-    MediaStore.Files.FileColumns.DATA,
-    MediaStore.Files.FileColumns.SIZE
-  )
+  val id = MediaStore.Files.FileColumns._ID
+  val path = MediaStore.Files.FileColumns.DATA
+  val size = MediaStore.Files.FileColumns.SIZE
+
   val cursor = context?.contentResolver?.query(
     Uri.parse("content://media/external/file"),
-    projection,
-    MediaStore.Files.FileColumns.DATA + " like ?",
-    arrayOf("%.$fileSuffixName"),
-    null
+    arrayOf(id, path, size), "$path like ?",
+    arrayOf("%.$fileSuffixName"), null
   )
-  if (cursor != null) {
-    if (cursor.moveToFirst()) {
+
+  cursor?.apply {
+    if (moveToFirst()) {
       do {
-        val id = cursor.getString(
-          cursor.getColumnIndex(MediaStore.Files.FileColumns._ID)
+        val pathName = getString(getColumnIndex(path))
+        val fileSVG = FileSVG(
+          getString(getColumnIndex(id)),
+          pathName,
+          pathName.substring(pathName.lastIndexOf("/") + 1),
+          getString(getColumnIndex(size))
         )
-        val path = cursor.getString(
-          cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)
-        )
-        val size = cursor.getString(
-          cursor.getColumnIndex(MediaStore.Files.FileColumns.SIZE)
-        )
-        val fileName = path.substring(path.lastIndexOf("/") + 1)
-        val fileSVG = FileSVG(id, path, fileName, size)
         list.add(fileSVG)
       } while (cursor.moveToNext())
     }
+    close()
   }
-  cursor?.close()
   return list
 }
 
