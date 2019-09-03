@@ -5,14 +5,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion build_version.compileSdkVersion
     defaultConfig {
         applicationId "com.alex.svgandroid"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion build_version.targetSdkVersion
+        versionCode build_version.versionCode
+        versionName build_version.versionName
+
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -21,15 +22,43 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation libs.kotlin_stdlib
+
+    androidTestImplementation libs.test_runner
+    androidTestImplementation libs.test_ext
+    testImplementation libs.junit
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraint
+    implementation libs.coordinatorlayout
+    implementation libs.viewmodelktx
+    implementation libs.extensions
+    implementation libs.recyclerview
+    implementation libs.navigation_fragment
+    implementation libs.navigation_ui
+
+    implementation libs.rxbinding
+    implementation libs.rxjava
+    implementation libs.rxandroid
+    implementation libs.rxrelay2
+    implementation libs.timber
+    implementation libs.autodispose_ktx
+    implementation libs.autodispose_android_ktx
+    implementation libs.autodispose_archs_ktx
+
+    implementation libs.multitype
+    implementation libs.immersionbar
+    implementation libs.permission
 }

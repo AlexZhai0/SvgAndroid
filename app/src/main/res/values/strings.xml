@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SvgAndroid</string>
+
+    <!-- hint -->
+    <string name="error_01">网络错误</string>
+    <string name="error_02">错误</string>
+
+    <!-- svg -->
+    <string name="svg_error">没有找到 SVG 文件</string>
 </resources>

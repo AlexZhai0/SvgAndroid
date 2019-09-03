@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_svg_list"
+    tools:ignore="UnusedNavigation">
+
+  <!-- 显示 SVG 列表页面 -->
+  <fragment
+      android:id="@+id/fragment_svg_list"
+      android:name="com.alex.svgandroid.SvgListFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      tools:layout="@layout/fragment_layout_svg_list">
+    <action
+        android:id="@+id/fragment_action_svg_list"
+        app:destination="@+id/fragment_svg_detail"
+        app:enterAnim="@anim/enter_to_left"
+        app:exitAnim="@anim/exit_to_left"
+        app:popEnterAnim="@anim/pop_enter_to_right"
+        app:popExitAnim="@anim/pop_exit_to_right" />
+  </fragment>
+
+
+  <!-- 显示 SVG 详情页面 -->
+  <fragment
+      android:id="@+id/fragment_svg_detail"
+      android:name="com.alex.svgandroid.SvgDetailFragment"
+      tools:layout="@layout/fragment_svg">
+    <action
+        android:id="@+id/fragment_action_svg_detail"
+        app:enterAnim="@anim/enter_to_left"
+        app:exitAnim="@anim/exit_to_left"
+        app:popEnterAnim="@anim/pop_exit_to_right"
+        app:popExitAnim="@anim/pop_exit_to_right" />
+  </fragment>
+
+</navigation>

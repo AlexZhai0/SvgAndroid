@@ -1,0 +1,112 @@
+ext {
+
+    build_version = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : '0.0.1'
+    ]
+
+    versions = [
+            junit                : '4.12',
+            espresso             : '3.2.0',
+            test_runner          : '1.2.0',
+            test_ext             : '1.1.1',
+
+            android_plugin       : '3.5.0',
+            kotlin               : '1.3.41',
+            kotlin_coroutines    : '1.0.0',
+
+            appcompat            : '1.0.0',
+            material             : '1.1.0-alpha08',
+            constraint           : '2.0.0-beta2',
+            recyclerview         : '1.0.0',
+            coordinatorlayout    : '1.0.0',
+            viewmodelktx         : '2.2.0-alpha02',
+            navigation_fragment  : '2.0.0',
+            extensions           : '2.0.0',
+
+            rxjava               : '2.2.4',
+            rxandroid            : '2.1.0',
+            rxbinding            : '3.0.0',
+            rxrelay2             : '2.1.0',
+            timber               : '4.7.1',
+            autodispose          : '1.2.0',
+            multitype            : '4.0.0-alpha3',
+            immersionbar         : '3.0.0-beta05',
+            permission           : '2.0.1',
+
+
+            // 未使用
+            retrofit             : '2.4.0',
+            okhttp               : '3.11.0',
+            glide                : '4.8.0',
+            kodein               : '6.0.1',
+            leakcanary           : '1.6.2',
+    ]
+
+    build_plugins = [
+            android_gradle: [group: 'com.android.tools.build', name: 'gradle', version: versions.android_plugin],
+            kotlin_gradle : [group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: versions.kotlin]
+    ]
+    libs = [
+            // Android 官方 libs
+            kotlin_stdlib               : [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: versions.kotlin],
+            kotlin_coroutines           : [group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-android', version: versions.kotlin_coroutines],
+
+            junit                       : [group: 'junit', name: 'junit', version: versions.junit],
+            test_espresso_core               : [group: 'androidx.test.espresso', name: 'espresso-core', version: versions.espresso],
+            test_runner                 : [group: 'androidx.test', name: 'runner', version: versions.test_runner],
+            test_ext                    : [group: 'androidx.test.ext', name: 'junit', version: versions.test_ext],
+
+            appcompat                   : [group: 'androidx.appcompat', name: 'appcompat', version: versions.appcompat],
+            material                      : [group: 'com.google.android.material', name: 'material', version: versions.material],
+            constraint                  : [group: 'androidx.constraintlayout', name: 'constraintlayout', version: versions.constraint],
+            recyclerview                : [group: 'androidx.recyclerview', name: 'recyclerview', version: versions.recyclerview],
+            coordinatorlayout           : [group: 'androidx.coordinatorlayout', name: 'coordinatorlayout', version: versions.coordinatorlayout],
+            viewmodelktx                : [group: 'androidx.lifecycle', name: 'lifecycle-viewmodel-ktx', version: versions.viewmodelktx],
+            extensions                  : [group: 'androidx.lifecycle', name: 'lifecycle-extensions', version: versions.extensions],
+            navigation_fragment         : [group: 'androidx.navigation', name: 'navigation-fragment-ktx', version: versions.navigation_fragment],
+            navigation_ui               : [group: 'androidx.navigation', name: 'navigation-ui-ktx', version: versions.navigation_fragment],
+
+
+            // 其他开源 libs
+            rxjava                      : [group: 'io.reactivex.rxjava2', name: 'rxjava', version: versions.rxjava],
+            rxandroid                   : [group: 'io.reactivex.rxjava2', name: 'rxandroid', version: versions.rxandroid],
+            rxbinding                   : [group: 'com.jakewharton.rxbinding3', name: 'rxbinding-core', version: versions.rxbinding],
+            rxrelay2                    : [group: 'com.jakewharton.rxrelay2', name: 'rxrelay', version: versions.rxrelay2],
+            timber                    : [group: 'com.jakewharton.timber', name: 'timber', version: versions.timber],
+
+            autodispose_ktx             : [group: 'com.uber.autodispose', name: 'autodispose-ktx', version: versions.autodispose],
+            autodispose_android_ktx     : [group: 'com.uber.autodispose', name: 'autodispose-android-ktx', version: versions.autodispose],
+            autodispose_archs_ktx       : [group: 'com.uber.autodispose', name: 'autodispose-android-archcomponents-ktx', version: versions.autodispose],
+
+            multitype                   : [group: 'me.drakeet.multitype', name: 'multitype', version: versions.multitype],
+
+            immersionbar                : [group: 'com.gyf.immersionbar', name: 'immersionbar', version: versions.immersionbar],
+            permission                  : [group: 'com.yanzhenjie.permission', name: 'x', version: versions.permission],
+
+
+
+            // 未使用
+            glide                       : [group: 'com.github.bumptech.glide', name: 'glide', version: versions.glide],
+            glide_compiler              : [group: 'com.github.bumptech.glide', name: 'compiler', version: versions.glide],
+
+            okhttp                      : [group: 'com.squareup.okhttp3', name: 'okhttp', version: versions.okhttp],
+            okhttp_logging              : [group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: versions.okhttp],
+
+            retrofit                    : [group: 'com.squareup.retrofit2', name: 'retrofit', version: versions.retrofit],
+            retrofit_gson               : [group: 'com.squareup.retrofit2', name: 'converter-gson', version: versions.retrofit],
+            retrofit_rxjava             : [group: 'com.squareup.retrofit2', name: 'adapter-rxjava2', version: versions.retrofit],
+
+            kodein                      : [group: 'org.kodein.di', name: 'kodein-di-generic-jvm', version: versions.kodein],
+            kodein_android              : [group: 'org.kodein.di', name: 'kodein-di-framework-android-core', version: versions.kodein],
+            kodein_androidx             : [group: 'org.kodein.di', name: 'kodein-di-framework-android-x', version: versions.kodein],
+
+            leak_canary_debug           : [group: 'com.squareup.leakcanary', name: 'leakcanary-android', version: versions.leakcanary],
+            leak_canary_debug_support   : [group: 'com.squareup.leakcanary', name: 'leakcanary-support-fragment', version: versions.leakcanary],
+            leak_canary_release         : [group: 'com.squareup.leakcanary', name: 'leakcanary-android-no-op', version: versions.leakcanary],
+    ]
+
+}
