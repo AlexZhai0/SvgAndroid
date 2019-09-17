@@ -6,4 +6,4 @@ show svg file.
 
 
 
-<img src="https://github.com/AlexZhai0/SvgAndroid/raw/master/app/src/main/res/drawable-xhdpi/svg.gif" style="zoom:30%"/>
+<img src="https://github.com/AlexZhai0/SvgAndroid/raw/master/app/src/main/res/drawable-xhdpi/svg.gif" width=30px height=80px/>
